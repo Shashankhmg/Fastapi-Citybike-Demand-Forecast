@@ -23,8 +23,6 @@ def load_model():
     return joblib.load(model_path)
 
 model = load_model()
-# Load the model
-model = load_model()
 
 # Define input data structure
 class InputData(BaseModel):
