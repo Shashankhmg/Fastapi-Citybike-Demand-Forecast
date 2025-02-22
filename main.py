@@ -96,10 +96,11 @@ def predict_post(data: InputData):
         print(f"Error in POST /predict: {e}")
         return {"error": str(e)}
 
+print('hello')
 if __name__ == "__main__":
     try:
         port = int(os.getenv("PORT", "8080"))  # Default to 8080
-        print(f"Starting server on port {port}")
+        print(f"✅ Starting server on port {port}", flush=True)
         uvicorn.run(app, host="0.0.0.0", port=port)
     except Exception as e:
         print(f"Error starting FastAPI server: {e}")
