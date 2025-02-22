@@ -11,15 +11,18 @@ app = FastAPI()
 
 # Load Hugging Face token securely from environment variables
 HF_TOKEN = os.getenv("HF_ACCESS_TOKEN")
-
+print('loaded token')
 def load_model():
+    print("Loading model from Hugging Face...")
     model_path = hf_hub_download(
         repo_id="Shashankhmg/citybike-demnd-prediction", 
         filename="RF.joblib",
-        use_auth_token=HF_TOKEN  # Ensure the token is passed
+        use_auth_token=HF_TOKEN
     )
+    print("Model loaded successfully:", model_path)
     return joblib.load(model_path)
 
+model = load_model()
 # Load the model
 model = load_model()
 
