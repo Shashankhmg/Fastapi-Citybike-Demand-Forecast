@@ -36,6 +36,24 @@ class InputData(BaseModel):
     start_lat: float
     start_lng: float
 
+@app.get("/")
+def home():
+    return {"message": "FastAPI is running!"}
+
+# GET request for /predict (example values for testing in browser)
+@app.get("/predict")
+def predict_get(
+    start_station_id: int, hour_of_day: int, day_of_week: int, weekend: int, 
+    month: int, rush_hour: int, avg_rolling_7days: float, avg_rolling_30days: float, 
+    start_lat: float, start_lng: float
+):
+    features = np.array([[start_station_id, hour_of_day, day_of_week, weekend, 
+                          month, rush_hour, avg_rolling_7days, avg_rolling_30days, 
+                          start_lat, start_lng]])
+    
+    prediction = model.predict(features)
+    return {"predicted_demand": prediction.tolist()}
+
 @app.post("/predict")
 def predict(data: InputData):
     features = np.array([[data.start_station_id, data.hour_of_day, data.day_of_week, data.weekend, 
