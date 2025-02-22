@@ -67,4 +67,6 @@ def predict(data: InputData):
     return {"predicted_demand": prediction.tolist()}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8080)))  # Ensure PORT is 8080
+    port = int(os.getenv("PORT", 8080))  # Default to 8080
+    print(f"Starting server on port {port}")
+    uvicorn.run(app, host="0.0.0.0", port=port)
