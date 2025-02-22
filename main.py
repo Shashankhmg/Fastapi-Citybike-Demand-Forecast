@@ -2,17 +2,24 @@ from fastapi import FastAPI
 import joblib
 import numpy as np
 from pydantic import BaseModel
-from io import BytesIO
-import boto3
-import joblib
-from huggingface_hub import hf_hub_download, login
 import os
-HF_TOKEN = os.getenv("HF_ACCESS_TOKEN")  # Securely fetch from environment
+from huggingface_hub import hf_hub_download
+
+# Initialize FastAPI
+app = FastAPI()
+
+# Load Hugging Face token securely from environment variables
+HF_TOKEN = os.getenv("HF_ACCESS_TOKEN")
 
 def load_model():
-    model_path = hf_hub_download(repo_id="Shashankhmg/citybike-demnd-prediction", filename="RF.joblib")
+    model_path = hf_hub_download(
+        repo_id="Shashankhmg/citybike-demnd-prediction", 
+        filename="RF.joblib",
+        use_auth_token=HF_TOKEN  # Ensure the token is passed
+    )
     return joblib.load(model_path)
 
+# Load the model
 model = load_model()
 
 # Define input data structure
@@ -30,7 +37,9 @@ class InputData(BaseModel):
 
 @app.post("/predict")
 def predict(data: InputData):
-    features = np.array([[data.start_station_id, data.hour_of_day, data.day_of_week, data.weekend, data.month, data.rush,
-                        data.avg_rolling_7days, data.avg_rolling_30days, data.start_lat, data.start_lng]])
+    features = np.array([[data.start_station_id, data.hour_of_day, data.day_of_week, data.weekend, 
+                          data.month, data.rush_hour, data.avg_rolling_7days, data.avg_rolling_30days, 
+                          data.start_lat, data.start_lng]])
+    
     prediction = model.predict(features)
     return {"predicted_demand": prediction.tolist()}
