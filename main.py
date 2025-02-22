@@ -4,6 +4,7 @@ import numpy as np
 from pydantic import BaseModel
 import os
 from huggingface_hub import hf_hub_download
+import uvicorn
 
 # Initialize FastAPI
 app = FastAPI()
@@ -43,3 +44,6 @@ def predict(data: InputData):
     
     prediction = model.predict(features)
     return {"predicted_demand": prediction.tolist()}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8080)))  # Ensure PORT is 8080
