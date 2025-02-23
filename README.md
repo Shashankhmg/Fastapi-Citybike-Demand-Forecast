@@ -42,7 +42,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
 - Example Response:
   ```json
   {
-    "predicted_demand": [71.0]
+    "predicted_demand": [2.41]
   }
   ```
 
@@ -66,7 +66,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
 - Example Response:
   ```json
   {
-    "predicted_demand": [71.0]
+    "predicted_demand": [2.41]
   }
   ```
 
