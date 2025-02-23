@@ -38,14 +38,14 @@ if model is None:
 
 # Define input data structure
 class InputData(BaseModel):
-    start_station_id: int
+    start_station_id: float
     hour_of_day: int
     day_of_week: int
     weekend: int
     month: int
     rush_hour: int
-    avg_rolling_7days: float
-    avg_rolling_30days: float
+    avg_rolling_7days: int
+    avg_rolling_30days: int
     start_lat: float
     start_lng: float
 
