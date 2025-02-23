@@ -5,8 +5,6 @@ This repository contains a **FastAPI-based API** for CitiBike demand prediction,
 ## **🔗 Live API Endpoint**
 [FastAPI on Railway](https://fastapi-example-production-fdcd.up.railway.app/)
 
----
-
 ## **📌 Project Overview**
 - **Framework:** FastAPI
 - **Hosting Platform:** Railway
