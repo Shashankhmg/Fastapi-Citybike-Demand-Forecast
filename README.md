@@ -14,7 +14,7 @@ This repository contains a **FastAPI-based API** for CitiBike demand prediction,
 
 
 ## API Features
-### 1. Load Pre-trained Model**
+### 1. Load Pre-trained Model
 The model is **fetched from Hugging Face** using `hf_hub_download` and stored locally for reuse.
 
 ### 2. API Endpoints
