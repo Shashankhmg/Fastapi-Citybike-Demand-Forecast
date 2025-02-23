@@ -2,10 +2,10 @@
 
 This repository contains a **FastAPI-based API** for CitiBike demand prediction, deployed on **Railway.app**. The API serves predictions using a **pre-trained Random Forest model** hosted on **Hugging Face**.
 
-## **🔗 Live API Endpoint**
+## Live API Endpoint
 [FastAPI on Railway](https://fastapi-example-production-fdcd.up.railway.app/)
 
-## **📌 Project Overview**
+## Project Overview
 - **Framework:** FastAPI
 - **Hosting Platform:** Railway
 - **Model Type:** Random Forest
@@ -13,7 +13,7 @@ This repository contains a **FastAPI-based API** for CitiBike demand prediction,
 - **Prediction Task:** Estimates bike demand at CitiBike stations based on historical data.
 
 
-## API Features**
+## API Features
 ### 1. Load Pre-trained Model**
 The model is **fetched from Hugging Face** using `hf_hub_download` and stored locally for reuse.
 
@@ -22,7 +22,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
 - **`GET /`**
 - Returns: `{ "message": "FastAPI is running!" }`
 
-#### 3. Predict Demand (GET)**
+#### 3. Predict Demand (GET)
 - **`GET /predict`**
 - Parameters (query string):
   - `start_station_id` (int)
@@ -46,7 +46,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
   }
   ```
 
-#### 3. Predict Demand (POST)**
+#### 3. Predict Demand (POST)
 - **`POST /predict`**
 - Body (JSON format):
   ```json
@@ -94,12 +94,12 @@ Create a `.env` file (or set as environment variables):
 HF_ACCESS_TOKEN=your_huggingface_token
 ```
 
-### 4. Run the FastAPI Server**
+### 4. Run the FastAPI Server
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8080
 ```
 
-### 5. Test API Locally**
+### 5. Test API Locally
 ```bash
 curl "http://127.0.0.1:8080/"
 ```
