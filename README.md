@@ -1,4 +1,4 @@
-# 🚀 CitiBike Demand Prediction API (FastAPI + Railway)
+# CitiBike Demand Prediction API (FastAPI + Railway)
 
 This repository contains a **FastAPI-based API** for CitiBike demand prediction, deployed on **Railway.app**. The API serves predictions using a **pre-trained Random Forest model** hosted on **Hugging Face**.
 
