@@ -58,8 +58,8 @@ def home():
 
 @app.get("/predict")
 def predict_get(
-    start_station_id: int, hour_of_day: int, day_of_week: int, weekend: int,
-    month: int, rush_hour: int, avg_rolling_7days: float, avg_rolling_30days: float,
+    start_station_id: float, hour_of_day: int, day_of_week: int, weekend: int,
+    month: int, rush_hour: int, avg_rolling_7days: int, avg_rolling_30days: int,
     start_lat: float, start_lng: float
 ):
     """Handle GET request predictions with exception handling."""
