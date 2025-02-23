@@ -79,7 +79,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/FastAPI-CitiBike.git
+git clone https://github.com/Shashankhmg/Fastapi-Citybike-Demand-Forecast.git
 cd FastAPI-CitiBike
 ```
 
