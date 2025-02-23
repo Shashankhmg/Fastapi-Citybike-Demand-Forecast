@@ -69,9 +69,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
     "predicted_demand": [2.41]
   }
   ```
-
----
-
+  
 ## ⚙️ Installation & Running Locally
 ### Prerequisites
 - Python 3.8+
