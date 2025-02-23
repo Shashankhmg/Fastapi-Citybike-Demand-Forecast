@@ -25,7 +25,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
 #### 3. Predict Demand (GET)
 - **`GET /predict`**
 - Parameters (query string):
-  - `start_station_id` (int)
+  - `start_station_id` (float)
   - `hour_of_day` (int)
   - `day_of_week` (int)
   - `weekend` (int)
@@ -37,7 +37,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
   - `start_lng` (float)
 - Example Request:
   ```bash
-  curl "https://fastapi-example-production-fdcd.up.railway.app/predict?start_station_id=72&hour_of_day=10&day_of_week=2&weekend=0&month=6&rush_hour=1&avg_rolling_7days=50.3&avg_rolling_30days=48.2&start_lat=40.7128&start_lng=-74.0060"
+  curl "https://fastapi-example-production-fdcd.up.railway.app/predict?start_station_id=6234.08&hour_of_day=10&day_of_week=2&weekend=0&month=6&rush_hour=1&avg_rolling_7days=50.3&avg_rolling_30days=48.2&start_lat=40.7128&start_lng=-74.0060"
   ```
 - Example Response:
   ```json
@@ -51,7 +51,7 @@ The model is **fetched from Hugging Face** using `hf_hub_download` and stored lo
 - Body (JSON format):
   ```json
   {
-    "start_station_id": 72,
+    "start_station_id": 6234.08,
     "hour_of_day": 10,
     "day_of_week": 2,
     "weekend": 0,
